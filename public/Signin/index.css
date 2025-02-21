@@ -1,0 +1,118 @@
+body {
+  background-image: url(../BackgroundImages/back1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-around;
+  height: 100vh;
+}
+.bucket {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+}
+h1 {
+  align-self: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  padding: 0px 0px 0px 0px;
+}
+.su{
+  display: flex;
+  row-gap: 0em;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 400px;
+  width: 23em;
+  background-color: #277e48;
+  border: 2px black solid;
+  border-radius: 12px;
+}
+.lp{
+  display: flex;
+  row-gap: 0em;
+  padding-top: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 280px;
+  width: 23em;
+  background-color: #095c80;
+  border: 2px black solid;
+  border-radius: 12px;
+}
+input[name="name"]{
+  border: rgb(0, 0, 0) solid 2px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  height: 2em;
+  width: 18em;
+  margin:0 0 1em 0;
+}
+input[type="number"]{
+  border: rgb(0, 0, 0) solid 2px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  height: 2em;
+  width: 18em;
+}
+input[type="email"] {
+  border: rgb(0, 0, 0) solid 2px;
+  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
+  height: 2em;
+  width: 18em;
+}
+input[type="password"] {
+  background-color: rgb(255, 255, 255);
+  border: black solid 2px;
+  border-radius: 2px;
+  height: 2em;
+  width: 18em;
+}
+
+input[type="submit"] {
+  font-size: larger;
+  transition: backgroud 1s ease-in;
+  cursor: pointer;
+  border: solid black 2px;
+  width: 10em;
+  border-radius: 5em;
+  background-color: rgb(27, 228, 80);
+  margin-top: 20px;
+}
+#Signup{
+  font-size:larger;
+  cursor: pointer;
+  width: 10.5em;
+  border-radius: 5em;
+  background-color: rgb(45, 110, 216);
+  margin: 1px 0 0 0;
+}
+input[value="Login"] {
+  font-size: 20px;
+}
+label {
+  font-size: larger;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0em;
+  color:azure;
+}
+
+.Email,
+.password {
+  margin: 1em 0 0 0;
+}
+.password{
+  margin-bottom:.5em;
+}

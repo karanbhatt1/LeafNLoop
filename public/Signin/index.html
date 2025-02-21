@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/login" class="lp" method="post">
+          <h1 style="color: aliceblue; margin-bottom:0;">Signin</h1>
+        <div class="Email">
+          <label for="Email">Email</label>
+          </br>
+          <input type="email" name="email" placeholder="Enter your email" autocomplete="on" required/>
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          </br>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="Login-button">
+          <input style="margin: 8px 0px 1px 0;"  type="submit" name="registertype" id="Login" value="Login"/>
+        </div>
+        <a href="sinup.html" style="color: azure;"><p style="margin: 0 0 0 0;">create new account</p></a>
+      </form>
+      
+    </div>
+    <script src="index.js">
+    </script>
+  </body>
+</html>

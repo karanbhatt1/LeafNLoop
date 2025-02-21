@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="bucket">
+    <form action="/signup" method="post" class="su">  
+        <h1 >Signup</h1>
+        <div class="fullName">
+          <label for="fullName">name</label> 
+        </br>
+          <input  type="text" name="name"  placeholder="Enter your fullName" autocomplete="on" required/>
+        </div>
+        <div class="Contact">
+          <label for="ConatctNo">Contact No.</label>
+          </br>
+          <input type="number" name="number" placeholder="Enter your number" required />
+        </div>
+        <div class="Email">
+          <label for="Email">Email</label>
+          </br>
+          <input type="email" name="email" placeholder="Enter your email" autocomplete="on" required/>
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          </br>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+          <p class="recommendations">
+            <span class="length invalid">✔ At least 8 characters</span><br>
+            <span class="uppercase invalid">✔ At least 1 uppercase letter</span><br>
+            <span class="lowercase invalid">✔ At least 1 lowercase letter</span><br>
+            <span class="number invalid">✔ At least 1 number</span><br>
+            <span class="special invalid">✔ At least 1 special character (!@#$%^&*)</span>
+            </p>
+        </div>
+        <div class="Signup-button" style="margin:10px 0 2px 0;"><input type="submit" name="registertype" id="Signup" value="Signup" title="Signup"></div>
+        <a href="index.html"  style="margin:0px; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
+    </form>
+      
+    </div>
+      <script>
+        document.querySelector(".password-box").addEventListener("input", function () {
+            const password = this.value;
+            
+            // Select elements using querySelector
+            document.querySelector(".length").className = password.length >= 8 ? "length valid" : "length invalid";
+            document.querySelector(".uppercase").className = /[A-Z]/.test(password) ? "uppercase valid" : "uppercase invalid";
+            document.querySelector(".lowercase").className = /[a-z]/.test(password) ? "lowercase valid" : "lowercase invalid";
+            document.querySelector(".number").className = /\d/.test(password) ? "number valid" : "number invalid";
+            document.querySelector(".special").className = /[!@#$%^&*]/.test(password) ? "special valid" : "special invalid";
+        });
+    </script>
+</body>
+</html>
+
+
+
