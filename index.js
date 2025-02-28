@@ -8,7 +8,7 @@ import sql from "mysql";
 import {v2 as cloudinary} from "cloudinary";
 import bcrypt from "bcrypt";
 
-var port = 3000;
+const port = process.env.PORT || 4000;
 
 const app = express();
 
