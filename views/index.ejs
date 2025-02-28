@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,150 +15,19 @@
     <meta name="authore" content="Karan Bhatt" />
     <link rel="icon" type="image/x-icon" href="favicon_io (1)/lnl.ico" />
     <title>LeafAndLoop</title>
-    <!--<style>
-      img{
-        height: 25em;
-        width: 25em;
-        aspect-ratio: 10/3;
-        object-fit: contain;
-        display: flex;
-      }
-    </style>-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-/>
     <link rel="stylesheet" href="stylesheets/style.css" />
   </head>
-  <body>
+  <%- include("header.ejs")%>
+  <body style="overflow-x: hidden;
+  height: 100%;
+  background: scroll;
+  background-color: #6dae47;">
     <!-- break poins in bootstrap   
      navbar-expand-sm expands on small (>=576)
      navbar-expand-md expands on medium (>=768)
      navbar-expand-lg expands on large (>=992px)
      navbar-expand-xl expands on extra-large (>=1200px)
      -->
-    <nav
-      class="navbar navbar-expand-lg  navbar-light fixed-top custom_css" style="background-color:#254720"
-      data-bs-theme="dark"  
-    >
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
-          LeafAndLoop
-        </a>
-        <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-toggle="collapse" 
-        data-bs-target="#navbarSearch"
-        aria-controls="navbarSearch"
-        aria-expanded="false"
-        aria-label="search icon"
-        >
-        </button>
-        <div class="d-flex align-items-center ms-2" id ="navbarSearch">
-          <form class="d-flex ms-4" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <span class="btn btn-outline-success">
-              <i class="bi bi-search"></i> <!-- Bootstrap search icon -->
-            </span>
-          </form>
-        </div>
-        <ul style="list-style:none; display: inline; margin: 0 2em 0 2em; align-self: flex-end">
-          <li class="nav-item">
-            <svg  style="padding: 0; margin: 0;"  xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="30" height="50" style="
-                      shape-rendering: geometricPrecision;
-                      text-rendering: geometricPrecision;
-                      image-rendering: optimizeQuality;
-                      fill-rule: evenodd;
-                      clip-rule: evenodd;
-                    " viewBox="0 0 6.827 6.827">
-              <defs>
-                <style>
-                  .fil2 {
-                    fill: #fffffe;
-                    fill-rule: nonzero;
-                  }
-                </style>
-              </defs>
-              <g id="Layer_x0020_1">
-                <rect width="6.827" height="6.827" rx=".853" ry=".853" style="fill: #5d9660" />
-                <g id="_486076848">
-                  <path id="_512193792"
-                    d="M1.608 2.024h4.333l-.048.14L5.32 3.85l-.024.073H1.978l-.021-.08-.452-1.685-.036-.134h.14zm.684 1.283h2.673l-.074.213H2.35l-.058-.213zm-.115-.425h2.935l-.074.213H2.234l-.057-.213zm-.116-.429h3.198v.006l-.072.208H2.118l-.057-.214z"
-                    style="fill: #fffffe" />
-                  <path id="_512193264" class="fil2"
-                    d="M.886 1.514H1.553l.021.079.687 2.562h2.956l-.072.213H2.097l-.021-.08-.686-2.561H.886z" />
-                  <path id="_512193216" class="fil2"
-                    d="M2.423 4.514a.398.398 0 0 1 .282.682.398.398 0 0 1-.682-.282.398.398 0 0 1 .4-.4zm.131.268a.185.185 0 0 0-.317.132.185.185 0 0 0 .317.131.185.185 0 0 0 0-.263z" />
-                  <path id="_491182512" class="fil2"
-                    d="M5.02 4.514a.398.398 0 0 1 .282.682.398.398 0 0 1-.682-.282.398.398 0 0 1 .4-.4zm.131.268a.185.185 0 0 0-.318.132.186.186 0 0 0 .318.131.185.185 0 0 0 0-.263z" />
-                </g>
-              </g>
-            </svg>
-      
-            <span id="counter" style="color: rgb(93, 80, 80)"></span>
-          </li>
-        </ul>
-      </button>
-        <button
-          class="navbar-toggler navt"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/"
-                >Best Sellers</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Other Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Connect To Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../Signin/index.html">Signup/Signin</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
     <div class="gallery">
       <div class="items">
         <a href=""><img src="images/dogpot.jpg" alt="" /></a>
@@ -483,18 +353,9 @@
         >
       </div>
     </div>
-
-    <footer class="bg-dark text-white text-center p-3">
-      <p class="email">
-        Write us on:<a href="mailto:contact@mywebpage.com"
-          >contact@mywebpage.com</a
-        >
-      </p>
-      <p class="right-reserve">&copy; 2024 My Webpage. All rights reserved.</p>
-    </footer>
-
     <script src="index.js"></script>
   </body>
+  <%-include("footer")%>;
 </html>
 
 

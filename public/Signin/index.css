@@ -2,7 +2,7 @@ body {
   background-image: url(../BackgroundImages/back1.jpg);
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
 }
 h1 {
   align-self: center;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
   margin: 0;
   padding: 0px 0px 0px 0px;
 }
@@ -32,9 +32,9 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 400px;
+  height: auto;
   width: 23em;
-  background-color: #277e48;
+  background-color: #00000088;
   border: 2px black solid;
   border-radius: 12px;
 }
@@ -81,22 +81,24 @@ input[type="password"] {
   width: 18em;
 }
 
-input[type="submit"] {
+button[type="submit"] {
   font-size: larger;
   transition: backgroud 1s ease-in;
   cursor: pointer;
   border: solid black 2px;
   width: 10em;
   border-radius: 5em;
-  background-color: rgb(27, 228, 80);
+  background-color: rgb(156, 193, 166);
   margin-top: 20px;
 }
 #Signup{
   font-size:larger;
+  color: white;
   cursor: pointer;
   width: 10.5em;
+  height: auto;
   border-radius: 5em;
-  background-color: rgb(45, 110, 216);
+  background-color: rgb(45,110,216);
   margin: 1px 0 0 0;
 }
 input[value="Login"] {
@@ -115,4 +117,12 @@ label {
 }
 .password{
   margin-bottom:.5em;
+}
+.recomendation{
+  font-family: sans-serif;
+  font-size: small;
+  align-self: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0;
+  padding: 0;
 }

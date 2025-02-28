@@ -8,22 +8,22 @@
 </head>
 <body>
     <div class="bucket">
-    <form action="/signup" method="post" class="su">  
+    <form action="/signup" method="POST" enctype="application/x-www-form-urlencoded" class="su">  
         <h1 >Signup</h1>
         <div class="fullName">
-          <label for="fullName">name</label> 
+          <label for="fullName">Name</label> 
         </br>
-          <input  type="text" name="name"  placeholder="Enter your fullName" autocomplete="on" required/>
+          <input  type="text" name="name" value="customname" placeholder="Enter Your FullName" autocomplete="on" required/>
         </div>
         <div class="Contact">
           <label for="ConatctNo">Contact No.</label>
           </br>
-          <input type="number" name="number" placeholder="Enter your number" required />
+          <input type="number" name="Contact" value="num" placeholder="Enter Your Mobile Number" required />
         </div>
         <div class="Email">
           <label for="Email">Email</label>
           </br>
-          <input type="email" name="email" placeholder="Enter your email" autocomplete="on" required/>
+          <input type="email" name="email" value="emailid" placeholder="Enter your email" autocomplete="on" required/>
         </div>
         <div class="password">
           <label for="password">Password</label>
@@ -31,10 +31,11 @@
           <input
             type="password"
             name="password"
+            value="passkey"
             placeholder="Enter your password"
             required
           />
-          <p class="recommendations">
+          <p class="recomendation">
             <span class="length invalid">✔ At least 8 characters</span><br>
             <span class="uppercase invalid">✔ At least 1 uppercase letter</span><br>
             <span class="lowercase invalid">✔ At least 1 lowercase letter</span><br>
@@ -42,7 +43,9 @@
             <span class="special invalid">✔ At least 1 special character (!@#$%^&*)</span>
             </p>
         </div>
-        <div class="Signup-button" style="margin:10px 0 2px 0;"><input type="submit" name="registertype" id="Signup" value="Signup" title="Signup"></div>
+        <div class="Signup-button" style="margin:10px 0 2px 0;">
+          <button type="submit" name="registertype" id="Signup" value="Signup" title="Signup"> Signup </button>
+        </div>
         <a href="index.html"  style="margin:0px; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
     </form>
       
