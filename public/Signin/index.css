@@ -59,7 +59,7 @@ input[name="name"]{
   width: 18em;
   margin:0 0 1em 0;
 }
-input[type="number"]{
+input[type="tel"]{
   border: rgb(0, 0, 0) solid 2px;
   border-radius: 2px;
   background-color: rgb(255, 255, 255);
