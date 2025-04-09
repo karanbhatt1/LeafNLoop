@@ -2,12 +2,12 @@
   "name": "learnloopusingbootstrap",
   "version": "1.0.0",
   "description": "E commersewebsite",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -32,10 +32,12 @@
     "body-parser": "^1.20.3",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "mysql2": "^3.12.0"
+    "mysql2": "^3.14.0",
+    "nodemon": "^3.1.9"
   }
 }
