@@ -5,11 +5,9 @@ import {dirname} from "path";
 import { fileURLToPath } from "url";
 import { type } from "os";
 import bcrypt from "bcrypt";
-import pool from "./sqlConnection";
 
 
 const port = process.env.PORT || 4000;
-const p = pool();
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
