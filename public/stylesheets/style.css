@@ -41,9 +41,8 @@ body{
   margin-top: 0.2em;
   padding: 0pt;
   align-self: center;
-  
-  
 }
+
 .ct{
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
@@ -55,6 +54,10 @@ body{
   border: rgb(0, 0, 0) solid 2px;
   border-radius: 2em;
   background-color: rgb(38, 157, 38);
+}
+.ct:hover{
+  background-color:rgb(118, 110, 197);
+  color: black;
 }
 div[class="Buy"]>p{
   text-align: center;
