@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="st" href="">
+</head>
+<body>
+        <div class="datacoll">
+            <form action="/added" method="post">
+                <h1>ADD ITEMS</h1>
+                <label for="image">
+                    Select Product From drop down
+                </label>
+                <select  id="img" name="product" id="prd">
+                    <option value="mug">mug</option>
+                </select>
+                <label for="Product_id"> 
+                    Product Id
+                </label>
+                <input type="text" name="ID" id="prd_id">
+                <label for="Product_name">
+                    Product Name
+                </label>
+                <input type="text" id="prd_name" name="name" placeholder="name">
+                <label for="Product_desc">
+                    Product Description
+                </label>
+                <input type="text" id="desc" name="Description" placeholder="not more than 50 characters">
+                <div class="btns">
+                    <button type="submit" id="add">Add to inventory</button>
+                    <button type="action"  id="rmv">Remove From Inventory</button>
+                </div>
+                <p class="ack"></p>
+            </form>
+        </div>
+        <script src="app.js"></script>
+</body>
+</html>
