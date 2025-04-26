@@ -4,7 +4,9 @@ import path from "path";
 import {dirname} from "path";
 import { fileURLToPath } from "url";
 import { type } from "os";
+// import { connection as cn } from ("./sqlConnection")
 import bcrypt from "bcrypt";
+
 
 
 const port = process.env.PORT || 4000;
@@ -16,38 +18,47 @@ const __dirname = path.dirname(__filename);
 const parser = bodyParser.urlencoded({extended:true});
 app.use(parser);
 app.use(express.json()); // for parsing the forms data;
-app.use(express.static(path.join(__dirname +"/public")))
+app.use(express.static(path.join(__dirname ,"/public")))
 app.set("views engine","ejs");
+
 
 app.get("/",(req,res)=>{
     res.render("index.ejs");
 })
 
+
 app.post("/signup",(req,res)=>{
     const data = req.body;
     console.log(data);
-    const pass = data.password;
-    let hassedPass;
-    bcrypt.genSalt(10,function(err,Salt){
-        bcrypt.hash(pass,Salt,(err,hash)=>{
-            if(err){
-                console.log(err.message);
-            }
-            hassedPass = hash;
-            console.log(hassedPass);
-        })
-        bcrypt.compare(pass,hassedPass,async function(err,isMatch){
-            if(isMatch){
-                console.log("encrypted password is:",pass);
-                console.log('decrypted password is:',hassedPass)
-            }
-            else{
-                console.log(hassPass +' is not encryptoion of ' +pass);
-            }
-        })
-    });
-    console.log(hassPass);
+    const pswdo= data.password;
+    if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%^&*!])[A-Za-z\d@$%^&*!]{8,}$/.test(pswdo)){
+        flag=1
+    }
+    
+    // let hassedPass;
+    // bcrypt.genSalt(10,function(err,Salt){
+    //     bcrypt.hash(pass,Salt,(err,hash)=>{
+    //         if(err){
+    //             console.log(err.message);
+    //         }
+    //         hassedPass = hash;
+    //         console.log(hassedPass);
+    //     })
+    //     bcrypt.compare(pass,hassedPass,async function(err,isMatch){
+    //         if(isMatch){
+    //             console.log("encrypted password is:",pass);
+    //             console.log('decrypted password is:',hassedPass)
+    //         }
+    //         else{
+    //             console.log(hassPass +' is not encryptoion of ' +pass);
+    //         }
+    //     })
+    // });
+    // console.log(hassPass);
 })
+
+
+
 
 // addEventListener("click",()=>{
 //     app.get("/Signup",(req,res)=>{

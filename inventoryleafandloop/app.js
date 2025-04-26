@@ -4,7 +4,7 @@ import path from "path"
 import  {dirname} from "path";
 import {fileURLToPath} from "url"
 import { type } from "os";
-import {imagesFromCloud as ifc} from '../cloudinary.js';
+//import {imagesFromCloud as ifc} from '../cloudinary.js';
 
 const app = express();
 const port = process.env.PORT || 3000
@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname,"\\public\\index.js")))
 app.set("views engine","ejs")
 
 app.get("/",(req,res)=>{
-   const r = fi.ifc(1,"productAdded")
-   console.log(r)
+   //const r = ifc(1,"productAdded")
+   //console.log(r)
    res.render("index.ejs")
 })
 
