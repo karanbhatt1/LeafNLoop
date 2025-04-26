@@ -1,8 +1,9 @@
 body {
   background-image: url(../BackgroundImages/back1.jpg);
   background-repeat: no-repeat;
-  background-position: center;
-  overflow-x: hidden;
+  background-position: center; 
+  overflow-y: hidden;
+ 
 }
 
 .container {
@@ -32,9 +33,9 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: auto;
-  width: 23em;
-  background-color: #00000088;
+  height:33em;
+  width: 30em;
+  background-color: #24242488;
   border: 2px black solid;
   border-radius: 12px;
 }
@@ -47,36 +48,22 @@ h1 {
   align-items: center;
   height: 280px;
   width: 23em;
-  background-color: #095c80;
+  background-color:#24242488;
   border: 2px black solid;
   border-radius: 12px;
 }
-input[name="name"]{
-  border: rgb(0, 0, 0) solid 2px;
-  border-radius: 2px;
-  background-color: rgb(255, 255, 255);
-  height: 2em;
-  width: 18em;
-  margin:0 0 1em 0;
+input:focus{
+  outline: none;
 }
-input[type="tel"]{
-  border: rgb(0, 0, 0) solid 2px;
+input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: white solid 2px;
   border-radius: 2px;
-  background-color: rgb(255, 255, 255);
-  height: 2em;
-  width: 18em;
-}
-input[type="email"] {
-  border: rgb(0, 0, 0) solid 2px;
-  border-radius: 2px;
-  background-color: rgb(255, 255, 255);
-  height: 2em;
-  width: 18em;
-}
-input[type="password"] {
-  background-color: rgb(255, 255, 255);
-  border: black solid 2px;
-  border-radius: 2px;
+  background-color: transparent;
+  color: azure;
+  font-size: large;
   height: 2em;
   width: 18em;
 }
@@ -90,6 +77,9 @@ button[type="submit"] {
   border-radius: 5em;
   background-color: rgb(156, 193, 166);
   margin-top: 20px;
+}
+#otp{
+  align-self: center;;
 }
 #Signup{
   font-size:larger;
@@ -112,12 +102,15 @@ label {
 }
 
 .Email,
-.password {
+.password,.Contact {
   margin: 1em 0 0 0;
 }
 .password{
   margin-bottom:.5em;
 }
+/* .Contact{
+  margin:1em 0 0 3.5em;
+} */
 .recomendation{
   font-family: sans-serif;
   font-size: small;

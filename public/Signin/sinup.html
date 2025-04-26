@@ -13,18 +13,22 @@
         <div class="fullName">
           <label for="fullName">Name</label> 
         </br>
-          <input  type="text" name="name" value="customname" placeholder="Enter Your FullName" autocomplete="on" required/>
+          <input  class="nm" type="text" name="name" value="" placeholder="Enter Your FullName" autocomplete="on" required/>
+          <span class="nmvalid" style="display: none;">✅</span>
         </div>
         <div class="Contact">
           <label for="ConatctNo">Contact No.</label>
           </br>
           <input type="tel" name="Contact" value="" placeholder="Enter your mobile number" 
-          pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
+          class="contc" pattern="^[9876][0-9]{2}[0-9]{3}[0-9]{4}" required/>
+          <span class="convalid" style="display: none;">✅</span>
+          <!--<span> <button type="button" id="otp" >Get otp</button></span>-->
         </div>
         <div class="Email">
           <label for="Email">Email</label>
           </br>
-          <input type="email" name="email" value="emailid" placeholder="Enter your email" autocomplete="on" required/>
+          <input class= "em" type="email" name="email" value="" placeholder="Enter your email" autocomplete="on" required/>
+          <span class="emvalid" style="display: none;">✅</span>
         </div>
         <div class="password">
           <label for="password">Password</label>
@@ -32,37 +36,27 @@
           <input
             type="password"
             name="password"
-            value="passkey"
+            value= ""
+            id="pason"
             placeholder="Enter your password"
             required
           />
           <p class="recomendation">
-            <span class="length invalid">✔ At least 8 characters</span><br>
-            <span class="uppercase invalid">✔ At least 1 uppercase letter</span><br>
-            <span class="lowercase invalid">✔ At least 1 lowercase letter</span><br>
-            <span class="number invalid">✔ At least 1 number</span><br>
-            <span class="special invalid">✔ At least 1 special character (!@#$%^&*)</span>
+            <span class="length">✔ At least 8 characters</span><br>
+            <span class="uppercase">✔ At least 1 uppercase letter</span><br>
+            <span class="lowercase">✔ At least 1 lowercase letter</span><br>
+            <span class="number">✔ At least 1 number</span><br>
+            <span class="special">✔ At least 1 special character (!@#$%^&*)</span>
             </p>
         </div>
         <div class="Signup-button" style="margin:10px 0 2px 0;">
           <button type="submit" name="registertype" id="Signup" value="Signup" title="Signup"> Signup </button>
         </div>
-        <a href="index.html"  style="margin:0px; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
+        <a href="signin.html"  style="margin:.5em 0 0 0; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
     </form>
       
     </div>
-      <script>
-        document.querySelector(".password-box").addEventListener("input", function () {
-            const password = this.value;
-            
-            // Select elements using querySelector
-            document.querySelector(".length").className = password.length >= 8 ? "length valid" : "length invalid";
-            document.querySelector(".uppercase").className = /[A-Z]/.test(password) ? "uppercase valid" : "uppercase invalid";
-            document.querySelector(".lowercase").className = /[a-z]/.test(password) ? "lowercase valid" : "lowercase invalid";
-            document.querySelector(".number").className = /\d/.test(password) ? "number valid" : "number invalid";
-            document.querySelector(".special").className = /[!@#$%^&*]/.test(password) ? "special valid" : "special invalid";
-        });
-    </script>
+     <script src="./validation.js"></script>
 </body>
 </html>
 
