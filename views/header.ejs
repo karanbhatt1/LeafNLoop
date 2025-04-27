@@ -14,15 +14,9 @@
     nav {
       box-shadow: 3px 5px 10px black;
     }
-
-    a {
-      color: black;
-    }
-
     .con {
       display: flex;
       width: 100%;
-      gap: 1em;
       justify-content: space-evenly;
       flex-direction: row;
       align-items: center;
@@ -30,9 +24,15 @@
       flex-wrap: nowrap;
     }
 
+    a {
+      color: black;
+    }
+
+    
+
     .ss {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       flex-shrink: 1;
@@ -74,7 +74,7 @@
     .options {
       display: flex;
       width: 90%;
-      gap: 2rem;
+      gap: 1rem;
       flex-direction: row;
       justify-content: flex-start;
       flex-shrink: 1;
@@ -114,18 +114,70 @@
       font-weight: bold;
     }
 
-    .toogle li:hover{
-      color: rgb(238, 141, 23);
+    #toggleSearch{
+      display: none;
+      flex-direction: column;
+      gap: 2em;
+      width: 50vh;
     }
-    @media (max-width: 1175px) {
+    #togglesearchBox{
+      display: none;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .togSeah{
+      display: none;
+    }
+    .userandcart{
+      display: flex; 
+      flex-direction: row; 
+      margin-left: 2em;
+      margin-right: 3px;
+    }
+    @media (max-width: 1000px) {
       .navigators {
         display: none;
       }
-
       .toggler {
         display: inline;
-        margin: 0;
+        margin: 0 0px 0 5px;
+        padding: 0;
+        flex-shrink: 1;
+
       }
+    }
+    @media(max-width:650px) {
+      .ss{
+        display: none;
+      }
+      
+      
+      .togSeah{
+        display: inline;
+        border: black solid;
+        height: auto;
+        margin: 0 5px 0 0;
+        padding:0;
+      }
+      
+    }
+    @media(max-width:400px){
+      con{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      flex-shrink: 1;
+      flex-wrap: nowrap;
+      }
+      .userandcart{
+      display: flex; 
+      flex-direction: row; 
+      margin-left: 1em;
+      margin-right: 1em;
+    }
     }
   </style>
 
@@ -138,13 +190,14 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-light fixed-top custom_css" style="background-color:#5552bbc5" data-bs-theme="dark">
+    <nav class="navbar navbar-light fixed-top custom_css bg w-100 d-flex justify-content-center" style="background-color:#5552bbc5" data-bs-theme="dark">
       <div class="con">
-        <a class="navbar-brand fw-bolder text-black ms-5" href="#">
+        <a class="navbar-brand fw-bolder text-black ms-2 me-0" href="#">
           LeafAndLoop
         </a>
 
         <div class="navigators">
+          
           <ul class="options">
             <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
@@ -165,26 +218,49 @@
         </div>
 
 
-
-        <div class="ss ms-5">
+        <div class="ss">
           <form class="searchBox" role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="height: 40px;" />
-            <span class="btn btn-outline-success" style="font-size: 25px;">
-              <i class="bi bi-search"></i>
-            </span>
+            <input 
+            class="form-control" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search" 
+            style="height: 40px;" 
+            />
+            <button type="submit"
+            style="border-radius: 10px; outline: none; background-color:rgba(19, 161, 30, 0.662);"> 
+            <i 
+            class="material-icons"
+            style="font-size: 37px; font-weight: bold; color:black;"> 
+            search 
+            </i></button>
+           
           </form>
         </div>
 
-        <div style="display: flex; flex-direction: row; gap: 1em; margin-right: 2em;">
+        <div class="userandcart">
           <a href=""><i class="material-icons" style="font-size: 40px; color: black;">shopping_cart</i></a>
           <a href=""><i class="material-icons" style="font-size:40px; color: black;">account_circle</i></a>
         </div>
 
 
 
-        <!-- Toggler Button -->
-        <button class="toggler" onclick="toggleMenu()">
-          <i class="material-icons">menu</i>
+        <!-- Toggler for search bar-->
+        <button type="submit" class="togSeah m-0" onclick="togglesearch()"
+        style="border-radius: 10px; outline: none; background-color:rgba(19, 161, 30, 0.662);
+        border:black solid;"> 
+        <i 
+        class="material-icons"
+        style="font-size: 37px; font-weight: bold; color:black;"> 
+        search 
+        </i>
+        </button>
+
+        
+
+        <!--Toogle for menu -->
+        <button class="toggler me-5 ms-0 p-0" onclick="toggleMenu()">
+          <i class="material-icons" style="font-size:50; font-weight: 400; color: black;">menu</i>
         </button>
       </div>
       <div class="toogle" id="menu">
@@ -205,19 +281,73 @@
             <a class="nav-link" href="../Signin/signin.html">Signup/Signin</a>
           </li>
         </ul>
+        
       </div>
+      <!--search div -->
+      <div id="toggleSearch" style="display: none;" >
+        <form id="togglesearchBox" role="search" style="display: none;">
+          <input 
+          class="form-control" 
+          type="search" 
+          placeholder="Search" 
+          aria-label="Search" 
+          style="height: 40px;" 
+          />
+          <button type="submit"
+          style="border-radius: 10px; outline: none; background-color:rgba(19, 161, 30, 0.662); height: 40px;"> 
+          <i 
+          class="material-icons"
+          style="font-size: 37px; font-weight: bold; color:black;"> 
+          search 
+          </i></button>
+        </form>
+      </div>
+
     </nav>
   </header>
 
   <script>
+
+    let ts =  document.getElementById("toggleSearch");
+    let tss = document.getElementById("togglesearchBox");
+    let boxs = document.getElementById("togglesearchBox");
+    let  menu = document.getElementById('menu');
     function toggleMenu() {
-      var menu = document.getElementById('menu');
+      
       if (menu.style.display === 'flex') {
         menu.style.display = 'none';
       } else {
         menu.style.display = 'flex';
       }
     }
+
+    function togglesearch(){
+      var search = document.getElementById("toggleSearch");
+     
+      if(search.style.display==='flex' || boxs.style.display==='flex'){
+        search.style.display= 'none'
+        boxs.style.display = 'none'
+      }else{
+        search.style.display='flex'
+        boxs.style.display = 'flex'
+
+      }
+
+    }
+    function s(obj){
+      if(window.innerWidth>650){
+       obj.style.display= 'none'
+      }
+    }
+
+    window.addEventListener("resize",function (e){
+      s(ts)
+    })
+  window.addEventListener("resize",function(){
+    if(window.innerWidth>1000){
+        menu.style.display='none'
+      }
+  })
   </script>
 </body>
 
