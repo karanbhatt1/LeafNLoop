@@ -1,45 +1,156 @@
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Header" content="Header part" />
-    <meta name="keywords" content="pots,plants,indoor plants,buy plants online,custom prints,weeding cards" />
-    <meta name="authore" content="Karan Bhatt" />
-    <link rel="icon" type="image/x-icon" href="favicon_io (1)/lnl.ico" />
-    <title>LeafAndLoop</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=shopping_cart" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+<html>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-    <!-- break poins in bootstrap   
-     navbar-expand-sm expands on small (>=576)
-     navbar-expand-md expands on medium (>=768)
-     navbar-expand-lg expands on large (>=992px)
-     navbar-expand-xl expands on extra-large (>=1200px)
-     -->
-     <header>
-    <nav class="navbar navbar-expand-sm navbar-light fixed-top custom_css" style="background-color:#2a4f24" data-bs-theme="dark">
-      <div class="container d-flex flex-row gap-5 align-items-space-between bg-">
-        <a class="navbar-brand align-self-center" href="#">
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    nav {
+      box-shadow: 3px 5px 10px black;
+    }
+
+    a {
+      color: black;
+    }
+
+    .con {
+      display: flex;
+      width: 100%;
+      gap: 1em;
+      justify-content: space-evenly;
+      flex-direction: row;
+      align-items: center;
+      flex-shrink: 1;
+      flex-wrap: nowrap;
+    }
+
+    .ss {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 1;
+    }
+
+    .searchBox {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 0;
+      justify-content: center;
+      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 15rem;
+      max-width: 25rem;
+      align-items: center;
+    }
+
+    .navigators {
+      align-self: flex-end;
+      display: flex;
+      flex-direction: row;
+      height: 3rem;
+      justify-content: flex-end;
+      align-items: center;
+      flex-shrink: 1;
+    }
+
+    .options li:hover {
+      color: rgba(212, 212, 212, 0.597);
+    }
+
+   
+    .options li a {
+      color: black;
+      font-weight: bold;
+    }
+
+    .options {
+      display: flex;
+      width: 90%;
+      gap: 2rem;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-shrink: 1;
+      height: 50%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+    }
+
+    .toggler {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .toogle {
+      width: 100%;
+      padding: 1rem 2rem;
+      display: none;
+    }
+
+    .toogle ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 0;
+    }
+
+    .toogle li a {
+      color: rgb(4, 4, 4);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .toogle li:hover{
+      color: rgb(238, 141, 23);
+    }
+    @media (max-width: 1175px) {
+      .navigators {
+        display: none;
+      }
+
+      .toggler {
+        display: inline;
+        margin: 0;
+      }
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-light fixed-top custom_css" style="background-color:#5552bbc5" data-bs-theme="dark">
+      <div class="con">
+        <a class="navbar-brand fw-bolder text-black ms-5" href="#">
           LeafAndLoop
         </a>
-        <a href=""> <span class="material-symbols-outlined">
-          shopping_cart
-        </span> </a>
-        <a class="nav-link" href=""> <span> <img src="../public/1486564400-account_81513.png" alt="" height="30px" width="30px"></span></a>
-        <button class="navbar-toggler navt" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <div class="navigators">
+          <ul class="options">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" >Home</a>
+              <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Best Sellers</a>
+              <a class="nav-link" href="/">Best Sellers</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Other Services</a>
@@ -51,14 +162,63 @@
               <a class="nav-link" href="../Signin/signin.html">Signup/Signin</a>
             </li>
           </ul>
-          <form class=" d-flex flex-row gap-0 flex align-items-center align-self-center mt-2" role="search" aria-label="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <span class="btn btn-outline-success">
-              <i class="bi bi-search align-self-center"></i> <!-- Bootstrap search icon -->
+        </div>
+
+
+
+        <div class="ss ms-5">
+          <form class="searchBox" role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="height: 40px;" />
+            <span class="btn btn-outline-success" style="font-size: 25px;">
+              <i class="bi bi-search"></i>
             </span>
           </form>
-        </div>      
+        </div>
+
+        <div style="display: flex; flex-direction: row; gap: 1em; margin-right: 2em;">
+          <a href=""><i class="material-icons" style="font-size: 40px;">shopping_cart</i></a>
+          <a href=""><i class="material-icons" style="font-size:40px;">account_circle</i></a>
+        </div>
+
+
+
+        <!-- Toggler Button -->
+        <button class="toggler" onclick="toggleMenu()">
+          <i class="material-icons">menu</i>
+        </button>
       </div>
-      
+      <div class="toogle" id="menu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Best Sellers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Other Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="checkout/contact.html">Connect To Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Signin/signin.html">Signup/Signin</a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </header>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+
+</html>

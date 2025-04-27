@@ -8,7 +8,6 @@ import { type } from "os";
 import bcrypt from "bcrypt";
 
 
-
 const port = process.env.PORT || 4000;
 const app = express();
 
@@ -20,7 +19,6 @@ app.use(parser);
 app.use(express.json()); // for parsing the forms data;
 app.use(express.static(path.join(__dirname ,"/public")))
 app.set("views engine","ejs");
-
 
 app.get("/",(req,res)=>{
     res.render("index.ejs");
@@ -56,7 +54,6 @@ app.post("/signup",(req,res)=>{
     // });
     // console.log(hassPass);
 })
-
 
 
 
