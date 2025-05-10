@@ -33,7 +33,7 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height:33em;
+  height:38em;
   width: 30em;
   background-color: #24242488;
   border: 2px black solid;
@@ -46,7 +46,7 @@ h1 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 280px;
+  height: 285px;
   width: 23em;
   background-color:#24242488;
   border: 2px black solid;

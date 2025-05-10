@@ -3,6 +3,7 @@
 
 import sql from "mysql2/promise";
 import env from "dotenv";
+import bcrypt from "bcrypt";
 env.config();
 
 async function establishconnection(){
@@ -27,9 +28,14 @@ export async function fetchData(cust_email){
   const connection = await establishconnection();
   const query = `select * from customers where cust_email=?`;
   const result = connection.execute(query,[cust_email]);
-  
-  
+  if(result){
+    return result;
+  }
+  return "some thing went wrong!"
 }
+
+
+
 
 export function validateDetails(pswdo,email,contact){
   let flag = 0;
@@ -41,6 +47,21 @@ export function validateDetails(pswdo,email,contact){
   }
   return flag;
 }
+
+
+
+export async function hasshedPass(paswdo){
+  try{ 
+    const hass = await bcrypt.hash(paswdo,13);
+    return hass;
+  } catch(err){
+    console.error("hashing error",err);
+    return undefined;
+  }
+}
+
+
+
 /// _--------------------------------------- PERFORMING CRUD OPERATIONS ----------------------------------------------------------------------------
 
 //await pool.execute("select * from customer");

@@ -11,7 +11,7 @@
       <form action="/login" class="lp" name="login" value="authenticate" enctype="application/x-www-form-urlencoded" method="post">
           <h1 style="color: aliceblue; margin-bottom:0;">Signin</h1>
           <% if (typeof errorMessage !== "undefined") {%>
-            <p style="color: red;"><%= errorMessage %></p>
+            <p style="color: red; margin:0; padding: 0;"><%= errorMessage %></p>
           <%}%>
         <div class="Email">
           <label for="Email">Email</label>
