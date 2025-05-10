@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../../../stylesheets/index.css" />
+    <title>Login</title>
   </head>
   <body>
     <div class="container">
       <form action="/login" class="lp" name="login" value="authenticate" enctype="application/x-www-form-urlencoded" method="post">
           <h1 style="color: aliceblue; margin-bottom:0;">Signin</h1>
+          <% if (typeof errorMessage !== "undefined") {%>
+            <p style="color: red;"><%= errorMessage %></p>
+          <%}%>
         <div class="Email">
           <label for="Email">Email</label>
           </br>
@@ -30,11 +33,9 @@
           <button style="margin: 8px 0px 1px 0;"  type="submit" name="registertype" id="Login" value="Login">Login</button>
           
         </div>
-        <a href="sinup.html" style="color: azure;"><p style="margin: .5 0 0 0;">create new account</p></a>
+        <a href="/signup" style="color: azure;"><p style="margin: .5 0 0 0;">create new account</p></a>
       </form>
       
     </div>
-    <script src="index.js">
-    </script>
   </body>
 </html>

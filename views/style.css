@@ -1,0 +1,86 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    justify-content:center;
+    align-items: center;
+    border: black solid;
+    height:5rem;
+    width: 100%;
+    min-width:900px;
+    overflow-x: scroll;
+}
+.logo{
+    display: flex;
+    margin-left: 2em;
+    flex-direction: row;
+    align-items: center;
+    height: 3em;
+    width: 7em;
+}
+.golo{
+    font-size: larger;
+    color: rgb(0, 0, 0);
+    flex-shrink: 0;
+}
+.search{ 
+    height: 3em;
+    width: 25rem;
+    display: flex;
+    flex-direction: row;
+    justify-items:center;
+}
+.navigators{
+    display: flex;
+    flex-direction: row;
+    height:3rem;
+    width: 32rem;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+.options li:hover{
+    background-color: rgba(128, 128, 128, 0.319);
+}
+
+.options li a{
+    color: black;
+}
+.options{
+    display: flex;
+    width: 90%;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+    height: 50%;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 1;
+    align-items: center;
+    list-style: none;
+
+}
+.cartanduser{
+    display: flex;
+    margin-right: 2em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 8em;
+}
+.sach{
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.dhudo{
+    border: 2px solid blue;
+    flex-grow: 1;
+    max-width: 22em;
+}

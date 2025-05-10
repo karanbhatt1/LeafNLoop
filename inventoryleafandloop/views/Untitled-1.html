@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <style>
+
+.custom-dropdown {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+}
+
+.selected, .option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.selected {
+  background-color: #f9f9f9;
+}
+
+.dropdown-options {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  display: none;
+  z-index: 10;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="custom-dropdown">
+            <div class="selected">
+              <img src="E:\Allproject\LearNLoopUsingBootstrap\public\images\dogpot.jpg" alt="Selected Image">
+              <span>Select an option</span>
+            </div>
+            <div class="dropdown-options">
+              <div class="option" data-value="option1">
+                <img src="E:\Allproject\LearNLoopUsingBootstrap\public\images\dogpot.jpg" alt="Option 1">
+                <span>Option 1</span>
+              </div>
+              <div class="option" data-value="option2">
+                <img src="https://via.placeholder.com/20" alt="Option 2">
+                <span>Option 2</span>
+              </div>
+            </div>
+            <input type="hidden" name="customSelect" id="customSelect">
+          </div>
+          
+    </body>
+</html>

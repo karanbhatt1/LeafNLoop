@@ -5,14 +5,42 @@ import sql from "mysql2/promise";
 import env from "dotenv";
 env.config();
 
-const connection = await sql.createConnection({
+async function establishconnection(){
+  const connection = await sql.createConnection({
   host: process.env.MYSQL_HOST ,
   user:  process.env.USER,
   password: process.env.PASSWORD,
   database: process.env.DATABASE
 });
-module.exports=connection;
+return connection;
+}
 
+export async function insertData(cust_name,cust_email,cust_password){
+  const connection= await establishconnection();
+      const query = `insert into customers (cust_name,cust_email,password_hash) value(?,?,?);`;
+      let [res] = await connection.execute(query,[cust_name,cust_email,cust_password]);
+      await connection.end();
+      return res.insertId;
+}
+
+export async function fetchData(cust_email){
+  const connection = await establishconnection();
+  const query = `select * from customers where cust_email=?`;
+  const result = connection.execute(query,[cust_email]);
+  
+  
+}
+
+export function validateDetails(pswdo,email,contact){
+  let flag = 0;
+  const passpat = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%^&*!])[A-Za-z\d@$%^&*!]{8,}$/;
+  const empat =/^[a-zA-Z0-9]+(?:[.%_+][a-zA-Z0-9]+)*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const conpat = /^[9876][0-9]{9}$/;
+  if(passpat.test(pswdo) && empat.test(email) && conpat.test(contact)){
+      flag=1
+  }
+  return flag;
+}
 /// _--------------------------------------- PERFORMING CRUD OPERATIONS ----------------------------------------------------------------------------
 
 //await pool.execute("select * from customer");

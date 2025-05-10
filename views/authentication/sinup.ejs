@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href= "../../../stylesheets/index.css">
 </head>
 <body>
     <div class="bucket">
-    <form action="/signup" method="POST" enctype="application/x-www-form-urlencoded" class="su">  
+    <form action="/signup" method="POST"  class="su">  
         <h1 >Signup</h1>
+        <% if (typeof errorMessage !== "undefined") { %>
+            <p style="color: red;"><%= errorMessage %></p>
+        <% } %>
+
         <div class="fullName">
           <label for="fullName">Name</label> 
         </br>
@@ -52,11 +56,12 @@
         <div class="Signup-button" style="margin:10px 0 2px 0;">
           <button type="submit" name="registertype" id="Signup" value="Signup" title="Signup"> Signup </button>
         </div>
-        <a href="signin.html"  style="margin:.5em 0 0 0; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
+        <a href="/login"  style="margin:.5em 0 0 0; color: aliceblue;"><p style="margin:2px;">already have account-Login</p></a> 
     </form>
       
     </div>
-     <script src="./validation.js"></script>
+     <script src="../../javascripts/validation.js">
+     </script>
 </body>
 </html>
 

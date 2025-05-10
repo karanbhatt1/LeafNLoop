@@ -4,10 +4,12 @@ import path from "path";
 import {dirname} from "path";
 import { fileURLToPath } from "url";
 import { type } from "os";
-// import { connection as cn } from ("./sqlConnection")
 import bcrypt from "bcrypt";
+import {insertData,validateDetails,fetchData} from './helper.js';
 
-
+if(insertData){
+    console.log("came successfully");
+}
 const port = process.env.PORT || 4000;
 const app = express();
 
@@ -19,20 +21,61 @@ app.use(parser);
 app.use(express.json()); // for parsing the forms data;
 app.use(express.static(path.join(__dirname ,"/public")))
 app.set("views engine","ejs");
-
+app.set("views",path.join(__dirname,"views"))
 app.get("/",(req,res)=>{
     res.render("index.ejs");
 })
 
+/**
+ * Login section 
+ */
+app.get("/login",(req,res)=>{
+    res.render("authentication/signin.ejs")
+})
 
+app.post("/login",(req,res)=>{
+    const data = req.body;
+    const email = data["email"];
+    console.log({data});
+    fetchData(email).then(resval=>{
+        console.log(resval.charAt(9));
+        if(resval.length===0){
+            throw new Error("user not found");
+        }
+    }).catch(err=>{
+        res.render("authentication/signin.ejs",{errorMessage:"No user found! Please create a new account."})
+    }
+    );
+    
+})
+
+/**
+ * sigiup section 
+*/
+app.get("/signup",(req,res)=>{
+    res.render("authentication/sinup.ejs");
+});
 app.post("/signup",(req,res)=>{
     const data = req.body;
     console.log(data);
+    // data checking done now push to the database if data  is correct;
     const pswdo= data.password;
-    if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%^&*!])[A-Za-z\d@$%^&*!]{8,}$/.test(pswdo)){
-        flag=1
-    }
+    const name = data["name"];
+    const email = data["email"];
+    const contact = data["Contact"];
+    const flag = validateDetails(pswdo,email,contact);
     
+    if(flag===1){
+        insertData(name,email,pswdo).then(function(resval){
+            res.redirect("/");
+        }).catch(function(error){
+            console.error("error",error);
+        })
+    }else{
+        res.render('authentication/sinup.ejs', { errorMessage: "Please enter correct details." });
+
+    }
+
     // let hassedPass;
     // bcrypt.genSalt(10,function(err,Salt){
     //     bcrypt.hash(pass,Salt,(err,hash)=>{
@@ -63,6 +106,11 @@ app.post("/signup",(req,res)=>{
 //     })
 // })
 // app.use(express.static("public"));
+
+
+
+
+
 app.listen(port,()=>{
     console.log(`page running on port ${port}`);
 })
