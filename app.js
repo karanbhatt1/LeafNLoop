@@ -12,7 +12,7 @@ const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-c
+
 const parser = bodyParser.urlencoded({extended:true});
 app.use(parser);
 app.use(express.json()); // NOTE ->for parsing the forms data;
