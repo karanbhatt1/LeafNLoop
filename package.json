@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node app.js",
+    "build": "echo 'No build needed for backend-only app",
     "start": "node app.js",
     "dev": "node app.js"
   },
