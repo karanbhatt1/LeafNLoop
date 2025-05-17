@@ -61,7 +61,6 @@ export async function hasshedPass(paswdo){
 }
 
 
-
 /// _--------------------------------------- PERFORMING CRUD OPERATIONS ----------------------------------------------------------------------------
 
 //await pool.execute("select * from customer");

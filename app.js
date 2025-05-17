@@ -3,9 +3,12 @@ import bodyParser from "body-parser";
 import path from "path";
 import {dirname} from "path";
 import { fileURLToPath } from "url";
+import bcrypt from "bcrypt";
 import { type } from "os";
 import {insertData,validateDetails,fetchData} from './helper.js';
 import { hasshedPass } from "./helper.js";
+//import {getElement} from "./public/javascripts/index.js"
+
 
 const port = process.env.PORT || 4000; 
 const app = express();
@@ -34,26 +37,29 @@ app.get("/login",(req,res)=>{
 })
 
 //FIXME - Login session need to be fixed;
-app.post("/login",(req,res)=>{
+app.post("/login",async (req,res)=>{
+    let flag = 0;
     const data = req.body;
     const usremail = data["email"];
     const usrpaswd = data["password"];
-    console.log({data});
     fetchData(usremail).then(resval=>{
         const [res] = resval[0];
-        if(usremail === res["cust_email"] || usrpaswd.compare()){
-            console.log(resval);
-            console.log(resval.length);
-            console.log(res["cust_email"]);
-            app.redirect("/");
+        if(usremail === res["cust_email"] && bcrypt.compare(usrpaswd,res["password_hash"])){
+            flag = 1;
+            
         }
         else if(resval.length===0){
             throw new Error("user not found");
         }
     }).catch(err=>{
+        console.log("error:",err)
         res.render("authentication/signin.ejs",{errorMessage:"No user found! Please create a new account."})
     }
     );
+    console.log(flag);
+    if(await flag===1){
+        res.redirect("/");
+    }
     
 })
 
