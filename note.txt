@@ -1,1 +1,2 @@
 IMP helpful keyshortcuts: ctrl+D to select all same character in windows.
+ctrl + f = to  find charater in vscode;

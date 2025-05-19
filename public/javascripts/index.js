@@ -6,35 +6,25 @@
 
 const btns = document.querySelectorAll(".ct");
  
-let lcart=[];
-function items(item,quantity){
-   this.name = item.alt;
-   this.item = item;
-   this.quantity = quantity;
-}
 
-
-function existing(obj,img){
-   exist = lcart.find(obj=>obj.name === img.alt);
-   return exist;
-}
-let fre = {};
-let product ={};
 function event(btnel){
    btnel.addEventListener("click",function(){
       const img = btnel.parentElement.parentElement.firstElementChild.firstChild;
-      fre[img.alt] = (fre[img.alt]||0)+1;
-      product = new items(img,fre[img.alt]);
-      const exist = existing(product,img);
-      if(exist!== undefined){
-         exist.quantity ++;
-      }   
-      else{
-         lcart.push(product);
-      }
-      console.log(lcart)
+      
+      fetch('/addtocart',{
+         method: 'POST',
+         headers :{
+            'Content-Type' : 'application/json'
+         },
+         body: JSON.stringify({user_id:us_id,product_id:img.pr_id,quantity:1})
+      }).then(res=>res.json()).then(data=>{
+         console.log(data);
+      }).catch(error=>{
+         console.log(error);
+      })
    })
 }
+
 function getElement(){
    btns.forEach((btnel)=>{
       event(btnel);

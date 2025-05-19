@@ -16,12 +16,38 @@ async function establishconnection(){
 return connection;
 }
 
-export async function insertData(cust_name,cust_email,cust_password){
+export async function registerCustomer(cust_name,cust_email,cust_password){
   const connection= await establishconnection();
       const query = `insert into customers (cust_name,cust_email,password_hash) value(?,?,?);`;
       let [res] = await connection.execute(query,[cust_name,cust_email,cust_password]);
       await connection.end();
       return res.insertId;
+}
+
+// NOTE adding to cart;
+async function addtocart(user_id,product_id,quantity){
+  const connection = await establishconnection();
+  const cartquery =
+    `INSERT INTO cart 
+    (USER_ID,PRODUCT_NAME,QUANTITY,PRODUCT_URL) 
+    VALUES (?,?,?) ON DUPLICATE KEY 
+    UPDATE quantity= quantity+?`;
+    let[res] = await connection.execute(cartquery,[user_id,product_id,quantity]);
+    return res.insertId;
+}
+async function fetchFromCart(user_id){
+  const connection = await establishconnection();
+  let query = `SELECT 
+  product_name,product_url,description,quantity,price 
+  from CART c join product p
+  on c.product_id = p.product_id 
+  where c.user_id = ? ORDER BY product_name ASC`;
+
+  const res = await connection.execute(query);
+  if(res !== undefined){
+    return res;
+  }
+  throw new Error("could not find the produts");
 }
 
 export async function fetchData(cust_email){
