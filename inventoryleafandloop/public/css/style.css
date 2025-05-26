@@ -48,6 +48,14 @@ input{
     font-weight: bolder;
     font-size: large;
 }
+input[type='button']{
+    width: 200px;
+    height: 50px;
+    align-self: center;
+    border-radius: 10px;
+    background-color: skyblue;
+    font-weight: bolder;
+}
 #desc{
     
 }
@@ -71,7 +79,38 @@ button{
     font-weight: bolder;
     font-size:large;
 }
-#prd_id{
-   
-  
+#popup{
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.popup-content{
+    display:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-end;
+    background-color: #141414;
+    border-radius: 8em;
+    width: auto;
+    height: auto;
+    padding: 0 1em 0 1em;
+    margin-bottom: 2em;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size:x-small;
+}
+
+.hidden{
+    display:none;
 }

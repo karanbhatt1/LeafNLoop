@@ -25,7 +25,9 @@ export async function registerCustomer(cust_name,cust_email,cust_password){
 }
 
 // NOTE adding to cart;
-async function addtocart(user_id,product_id,quantity){
+//REVIEW - THIS LINE NEEDS TO BE CHECKED AFTER ADDING JWT TOKENS;
+
+export async function addtocart(user_id,product_id,quantity){
   const connection = await establishconnection();
   const cartquery =
     `INSERT INTO cart 
@@ -35,7 +37,7 @@ async function addtocart(user_id,product_id,quantity){
     let[res] = await connection.execute(cartquery,[user_id,product_id,quantity]);
     return res.insertId;
 }
-async function fetchFromCart(user_id){
+export async function fetchFromCart(user_id){
   const connection = await establishconnection();
   let query = `SELECT 
   product_name,product_url,description,quantity,price 

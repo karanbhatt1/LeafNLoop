@@ -7,6 +7,7 @@ import bcrypt from "bcrypt";
 import { type } from "os";
 import { registerCustomer, validateDetails, fetchData } from "./helper.js";
 import { hasshedPass } from "./helper.js";
+import {addtocart} from "./helper.js";
 //import {getElement} from "./public/javascripts/index.js"
 
 const port = process.env.PORT || 4000;

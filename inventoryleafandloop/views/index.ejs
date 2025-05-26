@@ -1,40 +1,70 @@
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="st" href="">
 </head>
+
 <body>
-        <div class="datacoll">
-            <form action="/added" method="post">
-                <h1>ADD ITEMS</h1>
-                <label for="image">
-                    Select Product From drop down
-                </label>
-                <select  id="img" name="product" id="prd">
-                    <option value="mug"> <img src="LearNLoopUsingBootstrap\public\images" alt="mug" height="150px" width="150px"></option>
-                </select>
-                <label for="Product_id"> 
-                    Product Id
-                </label>
-                <input type="text" name="ID" id="prd_id">
-                <label for="Product_name">
-                    Product Name
-                </label>
-                <input type="text" id="prd_name" name="name" placeholder="name">
-                <label for="Product_desc">
-                    Product Description
-                </label>
-                <input type="text" id="desc" name="Description" placeholder="not more than 50 characters">
-                <div class="btns">
-                    <button type="submit" id="add">Add to inventory</button>
-                    <button type="action"  id="rmv">Remove From Inventory</button>
-                </div>
-                <p class="ack"></p>
-            </form>
+    <div id="popup" class="popup">
+        <div id="pop" class="popup-content hidden">
+            <h2>Product Added Successfully</h2>
         </div>
-        <script src="app.js"></script>
+    </div>
+    <div class="datacoll">
+        <form action="/added" method="post">
+            <h1>ADD ITEMS</h1>
+            <label for="image">
+                Select Product
+            </label>
+            <div class="pots">
+
+                <input type="button" id="select" value="Select Product">
+                <div class="pots_images" id="dropdown" style="display:none;">
+                    <% images.forEach(image=>{%>
+                        <div style="width: 300px; height: 2em; border: 2px solid wheat;"></div>
+                        <li class="list_items" style="list-style:none; align-self:center;" data-url="<%= image.url %>"
+                            data-id="<%= image.public_id %>">
+                            <img src="<%= image.url %>" alt="<%= image.public_id %>"
+                                style="width:100px; height:100px; border-radius:10px; object-fit: cover;">
+                            <span style="color: beige;">
+                                <%= image.public_id %>
+                            </span>
+                        </li>
+                        <% }); %>
+                            <div style="width: 300px;  height: 2em; border: 2px solid wheat;"></div>
+                </div>
+            </div>
+            <label for="product_url">
+                Product URL
+            </label>
+            <input class="dat" type="text" id="product_url" name="product_url" placeholder="Product URL" required
+                readonly>
+
+            <label for="Product_id">
+                Product Id
+            </label>
+            <input class="dat" type="text" name="ID" id="prd_id" readonly placeholder="Product ID">
+            <label for="Product_name">
+                Product Name
+            </label>
+            <input class="dat" type="text" id="prd_name" name="name" placeholder="name">
+            <label for="Product_desc">
+                Product Description
+            </label>
+            <input class="dat" type="text" id="desc" name="Description" placeholder="not more than 50 characters">
+            <div class="btns">
+                <button type="submit" id="add">Add to inventory</button>
+                <button type="action" id="rmv">Remove From Inventory</button>
+            </div>
+            <p class="ack"></p>
+        </form>
+    </div>
+    
+    <script src="JS/index.js"></script>
 </body>
+
 </html>
