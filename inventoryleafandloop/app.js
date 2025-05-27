@@ -5,6 +5,7 @@ import  {dirname} from "path";
 import {fileURLToPath} from "url"
 import { type } from "os";
 import {imagesFromCloud} from '../Cloudinary/cloudinary.js';
+import {insertProduct, updateStock, removeProduct} from './database/configuration.js';
 
 
 
@@ -31,10 +32,33 @@ app.get("/",async (req,res)=>{
 })
 
 app.post("/added", (req, res) => {
-       console.log(req.body);
-       res.sendStatus(200);
+        console.log(req.body);
+       const item ={
+          itemID: req.body.ID,
+          itemName: req.body.name,
+          itemDescription: req.body.Description,
+          itemPrice: parseInt(req.body.price),
+          itemURL: req.body.product_url,
+          itemStock: parseInt(req.body.quantity)
+       }
+
+        console.log("Item received:", item);
+       if(item!== undefined){
+          insertProduct(item["itemID"],item["itemName"],item["itemDescription"],item["itemPrice"],item["itemURL"],item["itemStock"])
+          .then((result) => {
+              console.log("Product added successfully:", result);
+              res.redirect("/")
+          })
+          .catch((error) => {
+              console.error("Error adding product:", error);
+              res.status(500).send("product already added in inventory");
+              res.redirect("/");
+              return;
+          });
+       }
+
        // Here you would typically handle the addition logic, e.g., saving the item to a database or inventory
-       res.redirect("/")
+       
 
   });
 app.post("/removed",(req,res)=>{

@@ -57,8 +57,8 @@ function setPUandPI(){
             console.log("clicked on list item");
             const public_id = e.target.getAttribute("alt");
             const url = e.target.getAttribute("src");
-            input[0].value= public_id;
-            input[1].value = url;
+            input[0].value= url;
+            input[1].value = public_id;
             dropdown.style.display = "none";
         });
     });

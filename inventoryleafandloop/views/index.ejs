@@ -22,7 +22,7 @@
             </label>
             <div class="pots">
 
-                <input type="button" id="select" value="Select Product">
+                <input type="button" id="select" value="Select Product" required>
                 <div class="pots_images" id="dropdown" style="display:none;">
                     <% images.forEach(image=>{%>
                         <div style="width: 300px; height: 2em; border: 2px solid wheat;"></div>
@@ -56,9 +56,19 @@
                 Product Description
             </label>
             <input class="dat" type="text" id="desc" name="Description" placeholder="not more than 50 characters">
+            <label for="product_price">
+                Product price
+            </label>
+            <input type="text" id="product_price" name="price" placeholder="Product Price" required>
+            <label for="product_quantity">
+                Product Quantity
+            </label>
+            <input type="text" id="product_quantity" name="quantity" placeholder="Product Quantity" required>
             <div class="btns">
                 <button type="submit" id="add">Add to inventory</button>
                 <button type="action" id="rmv">Remove From Inventory</button>
+                <button type="action" id="update">Update Inventory</button>
+                <button type="action" id="view">View Inventory</button>
             </div>
             <p class="ack"></p>
         </form>
