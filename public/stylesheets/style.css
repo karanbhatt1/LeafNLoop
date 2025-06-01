@@ -21,11 +21,10 @@ body{
   width: 100%;
 }
 .gallery{
-    display: inline-flex;
-    gap: 5em;
+    display: flexbox;
+    gap: 1em;
     flex-grow: 1;
     flex-wrap: wrap;
-    justify-content:space-evenly;
     margin-top:5em;
 }
 .items{
@@ -79,6 +78,7 @@ img{
 }
 .price{
   width: fit-content;
+  font-weight: bold;
   margin-top: 7px;
   margin-bottom: 0px;
   margin-left: 1em;
@@ -87,8 +87,14 @@ img{
 .description{
   margin-top: 1px;
   margin-bottom: 2px;
+  font-weight: bold;
   text-align: center;
   padding: 0px;
+}
+.pname{
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0;
 }
 @media (max-width: 1075px), (min-width: 872px) {
   .gallery {

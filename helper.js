@@ -89,6 +89,18 @@ export async function hasshedPass(paswdo){
 }
 
 
+
+export async function fetchProducts(){
+  const connection = await establishconnection();
+  const query = `SELECT * FROM product`;
+  const [rows] = await connection.execute(query);
+  if(rows.length > 0){
+    return rows;
+  }
+  await connection.end();
+}
+
+
 /// _--------------------------------------- PERFORMING CRUD OPERATIONS ----------------------------------------------------------------------------
 
 //await pool.execute("select * from customer");

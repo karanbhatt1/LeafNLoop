@@ -27,7 +27,7 @@ app.set("view engine","ejs");
 app.get("/",async (req,res)=>{
    //const r = ifc(1,"productAdded")
    //console.log(r)
-   const images = await imagesFromCloud(10);
+   const images = await imagesFromCloud(100);
    res.render("index",{images:images});
 })
 
@@ -50,11 +50,11 @@ app.post("/added", (req, res) => {
               res.redirect("/")
           })
           .catch((error) => {
-              console.error("Error adding product:", error);
-              res.status(500).send("product already added in inventory");
-              res.redirect("/");
-              return;
-          });
+            throw error;
+          }).catch((error) => {
+            console.error("Error adding product:", error);
+            res.status(500).send("product already exists");
+          })
        }
 
        // Here you would typically handle the addition logic, e.g., saving the item to a database or inventory

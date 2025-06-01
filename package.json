@@ -36,10 +36,12 @@
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "toastify-js": "^1.12.0"
   }
 }

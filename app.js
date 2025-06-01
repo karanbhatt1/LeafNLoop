@@ -5,9 +5,11 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 import bcrypt from "bcrypt";
 import { type } from "os";
-import { registerCustomer, validateDetails, fetchData } from "./helper.js";
+import { registerCustomer, validateDetails, fetchData , fetchProducts } from "./helper.js";
 import { hasshedPass } from "./helper.js";
 import {addtocart} from "./helper.js";
+import { error } from "console";
+import session  from "express-session";
 //import {getElement} from "./public/javascripts/index.js"
 
 const port = process.env.PORT || 4000;
@@ -20,10 +22,25 @@ const parser = bodyParser.urlencoded({ extended: true });
 app.use(parser);
 app.use(express.json()); // NOTE ->for parsing the forms data;
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(session({
+  secret:"viryainchut",
+  resave:false,
+  saveUninitialized:false,
+  cookie:{secure:false}
+}));
 app.set("views engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  const message = req.session.message;
+  req.session.message = null;
+  fetchProducts().then((products) => {
+
+    res.render("index.ejs", { products: products });
+  }).catch((err)=>{
+    res.send("it's not you its us.\n Hang on!!")
+  });
 });
 let pasi;
 async function handlepassword(paswdo) {
@@ -38,31 +55,20 @@ app.get("/login", (req, res) => {
 
 //FIXME - Login session need to be fixed;
 app.post("/login", async (req, res) => {
-  let flag = 0;
+  let flag = 1;
   const data = req.body;
   const usremail = data["email"];
   const usrpaswd = data["password"];
-  fetchData(usremail)
-    .then((resval) => {
-      const [res] = resval[0];
-      if (
-        usremail === res["cust_email"] &&
-        bcrypt.compare(usrpaswd, res["password_hash"])
-      ) {
-        flag = 1;
-      } else if (resval.length === 0) {
-        throw new Error("user not found");
-      }
-    })
-    .catch((err) => {
-      console.log("error:", err);
-      res.render("authentication/signin.ejs", {
-        errorMessage: "No user found! Please create a new account.",
-      });
-    });
-  console.log(flag);
-  if ((await flag) === 1) {
+  //flag = await bcrypt.compare(usrpaswd, ["password_hash"]);
+  const [dat] = await fetchData(usremail)
+  const passohaso = dat[0]["password_hash"];
+  const usro = dat[0]["cust_email"];
+  flag = await bcrypt.compare(usrpaswd,passohaso);
+  if(flag && usremail === usro){
+    req.session.message = "Successfully logged in!!"
     res.redirect("/");
+  }else{
+    res.render("authentication\\signin.ejs",{errorMessage:"incorrect email or password"})
   }
 });
 
@@ -72,6 +78,8 @@ app.post("/login", async (req, res) => {
 app.get("/signup", (req, res) => {
   res.render("authentication/sinup.ejs");
 });
+
+
 app.post("/signup", async (req, res) => {
   const data = req.body;
   //NOTE data checking done now push to the database if data  is correct;
@@ -80,19 +88,24 @@ app.post("/signup", async (req, res) => {
   const email = data["email"];
   const contact = data["Contact"];
   const flag = validateDetails(pswdo, email, contact);
+  console.log(flag);
   if (flag === 1) {
     await handlepassword(pswdo);
     registerCustomer(name, email, pasi).then(
       function (resval) {
-        res.render("index.ejs", {
-          userName: name,
-          cust_email: email,
-          cust_contact: contact,
-        });
-        //NOTE successfully registered the user and now sending the data at front end for profile page;
+        console.log("hum aagye");
+        res.redirect("/") 
+        // {
+        //   userName: name,
+        //   cust_email: email,
+        //   cust_contact: contact,
+        // });
+        // //NOTE successfully registered the user and now sending the data at front end for profile page;
       },
       function (error) {
         console.error("error", error);
+
+        res.render("authentication/signup",{errorMessage:"No user found!!"});
       }
     );
   } else {

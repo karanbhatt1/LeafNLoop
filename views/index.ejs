@@ -1,363 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Welcome to Leaf and Loop, the best place to buy pots and plants online."
-    />
-    <meta
-      name="keywords"
-      content="pots,plants,indoor plants,buy plants online,custom prints,weeding cards"
-    />
-    <meta name="authore" content="Karan Bhatt" />
-    <link rel="icon" type="image/x-icon" href="favicon_io (1)/lnl.ico" />
-    <title>LeafAndLoop</title>
-    <%- include("header.ejs")%>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to Leaf and Loop, the best place to buy pots and plants online." />
+  <meta name="keywords" content="pots,plants,indoor plants,buy plants online,custom prints,weeding cards" />
+  <meta name="authore" content="Karan Bhatt" />
+  <link rel="icon" type="image/x-icon" href="favicon_io (1)/lnl.ico" />
+  <title>LeafAndLoop</title>
+  <%- include("header.ejs")%>
     <link rel="stylesheet" href="stylesheets/style.css" />
-  </head>
-  
-  
-  <body style="overflow-x: hidden;
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+
+<body style="overflow-x: hidden;
   height: 100%;
   background: scroll;
   background-color: #589f58a7;">
-    <!-- break poins in bootstrap   
+  <!-- break poins in bootstrap   
      navbar-expand-sm expands on small (>=576)
      navbar-expand-md expands on medium (>=768)
      navbar-expand-lg expands on large (>=992px)
      navbar-expand-xl expands on extra-large (>=1200px)
      -->
-    <div class="gallery">
+  <div class="gallery">
+    <% products.forEach(product=> { %>
       <div class="items">
-        <a href=""><img src="images/dogpot.jpg" pr_id="1" alt="dogpot" /></a>
-        <p class="price">RS 400 only</p>
+        <a href="">
+          <img src="<%= product.product_url %>" pr_id="<%= product.id %>" alt="<%= product.name %>" />
+        </a>
+        <p class="price">RS <%= product.price %> only</p>
+        <p class="pname">
+          <%=product.product_name%>
+        </p>
         <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
+          <%= product.description %>
         </p>
         <div class="Cart">
           <button class="ct">Add To Cart</button>
         </div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
+        <a href="checkout/checkout.html">
+          <div class="Buy">
+            <p>Buy Now</p>
+          </div>
+        </a>
       </div>
-      <div class="items">
-        <a href=""><img src="images/duck.jpg" pr_id="2" alt="duck pot" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/elephentpot.jpg" pr_id="3" alt="elephantpots" /></a>
-        <p class="price">RS 200 Each</p>
-        <p class="description">Ceramic glossy finish elephant pots</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/housepot.jpg" alt="housepot" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0007.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <span class="price">* price is subjected to 1 quantity</span>
-        <p class="description">plain colorfull and texture big</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="https://res.cloudinary.com/dpoy37daj/image/upload/v1740146104/IMG_8843_zmskwd.heic" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">plain blue glossy finish big ceramic pot</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0011.jpg" alt="" /></a>
-        <p class="price">RS 400 Each</p>
-        <p class="description">Colorfull pots with glossy finish</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0013.jpg" alt="" /></a>
-        <p class="price">RS 600 only</p>
-        <p class="description">
-          Plain white and colorfull big <br />
-          circular shape ceramic pots
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0015.jpg" alt="" /></a>
-        <p class="price">RS 600 Set Of 2</p>
-        <p class="description">
-          Plain white and colorfull big <br />
-          circular shape ceramic pots
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0017.jpg" alt="" /></a>
-        <p class="price">Set Of RS 700 only</p>
-        <p class="description">set of 3 plain white big ceramic pots</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0019.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0021.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0023.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0025.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0027.jpg" alt="oil" /></a>
-        <p class="price">RS 300 only</p>
-        <p class="description">5 bottles of oil for the light pots</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0029.jpg" alt="" /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/IMG-20240923-WA0031.jpg" alt="wall decor"
-        /></a>
-        <p class="price">RS 350 only</p>
-        <p class="description">wall decor</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0033.jpg" alt="" /></a>
-        <p class="price">RS 250 each</p>
-        <p class="description">Colorful buddha face ceramic pot</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0035.jpg" alt="" /></a>
-        <p class="price">RS 600 only</p>
-        <p class="description">Set of two</p>
-        <p class="description">ceramic plain colorful owl pot</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/IMG-20240923-WA0037.jpg" alt="owl pot"
-        /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">ceramic plain colorful owl pot</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/IMG-20240923-WA0039.jpg" alt="owl pot"
-        /></a>
-        <p class="price">RS 400 only</p>
-        <p class="price" style="margin-top: 0">
-          Price is subjected to 1 quantity of product
-        </p>
-        <p class="description">ceramic plain colorful owl pot</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0041.jpg" alt="" /></a>
-        <p class="price">RS 350 only</p>
-        <p class="description">Tortoise shape pot with different colors</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="images/IMG-20240923-WA0043.jpg" alt="" /></a>
-        <p class="price">RS 350 only</p>
-        <p class="description">Tortoise shape pot with different colors</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""><img src="https://res.cloudinary.com/dpoy37daj/image/upload/v1740162720/plainwithdesignpot_acuevl.jpg" alt="" /></a>
-        <p class="price">RS 350 only</p>
-        <p class="description">Tortoise shape pot with different colors</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/plainWhiteWithLogo.jpg" alt="plainWhiteWithLogo"
-        /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img
-            src="images/plainWhitewiththought.jpg"
-            alt="plainWhiteWithDesign"
-        /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">Plain white Pot With a good thought</p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/Loveforeverblack.jpg" alt="loveforeverblack"
-        /></a>
-        <p class="price">RS 350 only</p>
-        <p class="description">
-          Plain Black Pot With
-          <span style="color: red">Love Forever </span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/plainwithdesignpot.jpg" alt="plainWhiteWithLogo"
-        /></a>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-      <div class="items">
-        <a href=""
-          ><img src="images/Aniversary pot.jpg" alt="plainWhiteWithLogo"
-        /></a>
-        <p class="price">RS 400 only</p>
-        <p class="description">
-          Plain white Pot With
-          <span style="color: red">Happy Aniversary</span>Print
-        </p>
-        <div class="Cart"><button class="ct">Add To Cart</button></div>
-        <a href="checkout/checkout.html"
-          ><div class="Buy"><p>Buy Now</p></div></a
-        >
-      </div>
-    </div>
-    <script src="javascripts/index.js"></script>
-  </body>
-  <%-include("footer")%>;
+      <% }); %>
+
+       
+
+  </div>
+  <script src="javascripts/index.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js">
+  </script>
+ <script>
+  if (typeof message !== 'undefined' && message) {
+    Toastify({
+      text: "Successfully Logged in!!",
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right"
+    }).showToast();
+   } 
+</script>
+
+</body>
+<%-include("footer")%>;
+
 </html>
 
 
@@ -367,4 +79,3 @@
 
 
 <!-- Bootstrap Icons -->
-
